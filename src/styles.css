@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+@media (max-width: 768px) {
+  .site-heading {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 40px 15px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+

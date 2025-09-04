@@ -1,0 +1,186 @@
+/* ===== CTA Banner (Same Gradient Scheme) ===== */
+:root{
+  --primary-start:#6a11cb;
+  --primary-end:#2575fc;
+  --text-dark:#0f1222;
+  --text-light:#f7f8ff;
+}
+
+.cta{
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin: 60px auto;
+  padding: 40px 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg,var(--primary-start),var(--primary-end));
+  color: var(--text-light);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(37,117,252,0.25);
+}
+
+.cta__container{
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta__title{
+  font-size: clamp(1.5rem,2.2vw,2.2rem);
+  line-height: 1.15;
+  margin: 0 0 8px 0;
+  letter-spacing: .2px;
+}
+
+.cta__subtitle{
+  margin: 0;
+  opacity: .95;
+  font-size: clamp(.95rem,1.2vw,1.05rem);
+}
+
+.cta__actions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.btn--primary{
+  background: #fff;
+  color: var(--text-dark);
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+.btn--primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+}
+
+.btn--ghost{
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  border-color: rgba(255,255,255,.35);
+  backdrop-filter: blur(6px);
+}
+.btn--ghost:hover{
+  background: rgba(255,255,255,.22);
+  transform: translateY(-2px);
+}
+
+/* Decorative gradient glows */
+.cta__glow{
+  position: absolute;
+  inset: auto;
+  width: 420px;
+  height: 420px;
+  filter: blur(70px);
+  opacity: .35;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #ffffff 0%, #b0c7ff 35%, transparent 60%);
+}
+.cta__glow--left{ left: -120px; top: -120px; }
+.cta__glow--right{ right: -140px; bottom: -180px; }
+
+/* Subtle animated shine */
+.cta::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.08) 40%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shine 6s linear infinite;
+  z-index: 0;
+}
+@keyframes shine{
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px){
+  .cta{
+    padding: 32px 18px;
+  }
+  .cta__container{
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  .cta__actions{
+    justify-self: center;
+  }
+  .cta__title{
+    font-size: 1.8rem;
+  }
+  .cta__subtitle{
+    font-size: 1rem;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px){
+  .cta{
+    padding: 28px 16px;
+    border-radius: 16px;
+  }
+  .cta__title{
+    font-size: 1.6rem;
+  }
+  .cta__subtitle{
+    font-size: .95rem;
+  }
+  .cta__actions{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn{
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px){
+  .cta{
+    padding: 24px 12px;
+  }
+  .cta__title{
+    font-size: 1.4rem;
+  }
+  .cta__subtitle{
+    font-size: .9rem;
+  }
+  .btn{
+    font-size: .9rem;
+    padding: 10px 14px;
+  }
+}
+
+/* Optional: match page container if you use one */
+.container{ 
+  max-width: 1180px; 
+  margin: 0 auto; 
+  padding: 0 16px; 
+}

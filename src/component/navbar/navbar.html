@@ -1,0 +1,22 @@
+<nav>
+  <div class="site-heading">Danish Angular Website</div>
+
+  <!-- Toggle Button -->
+ <div class="menu-toggle" (click)="toggleMenu()">
+  @if (!isMenuOpen) {
+    <span>&#9776;</span> <!-- Hamburger -->
+  } @else {
+    <span>&times;</span> <!-- Close (X) -->
+  }
+</div>
+
+
+  <!-- Navigation Links -->
+  <ul [class.show]="isMenuOpen" id="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
